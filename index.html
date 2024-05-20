@@ -6,8 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./assets/output.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-control svg {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+</style>
 </head>
-<body class=" bg-gradient-to-b from-black to-sky-400">
+<body class="bg-gradient-to-r from-rose-100 to-teal-100">
 
 <div class="container p-4 mx-auto lg:w-9/12 shadow-lg font-mono bg-white">
     <div class="mb-8">
@@ -152,15 +166,24 @@
               <p class="text-xl">Talent Acquisition Specialist</p>
               <p class="text-lg">Accenture.Inc Mandaluyong City</p>
               <p class="text-xs italic">Jun 2022 - Nov 2022</p>
-              <p class="text-sm">Verification, updating and uploading of candidate's file.</p>
+              <p class="text-sm">Screening and Interviewing: Review resumes, conduct interviews, and assess candidates for cultural fit.</p>
             </div>
 
             <div class="mb-4 md:mb-10">
               <p class="text-xl">Customer Service Representative</p>
               <p class="text-lg">Bonifacio Technology Center, Bonifacio Global City, Taguig</p>
               <p class="text-xs italic">Mar 2023 - Aug 2023</p>
-              <p class="text-sm">Responsible for inbound and outbound contacts via an omnichannel to solve customer needs and retain customers.</p>
+              <p class="text-sm">Customer Support: Assist customers with inquiries, complaints, and product/service issues via phone, email, and chat.</p>
             </div>
+
+            <div class="mb-4 md:mb-10">
+              <p class="text-xl">Full Stack Developer</p>
+              <p class="text-lg">Web Fuel Agency</p>
+              <p class="text-xs italic">April 2024</p>
+              <p class="text-sm">Web Development: Design, develop, and maintain both front-end and back-end components of web applications.</p>
+            </div>
+
+
 
             <p class="text-xl">Courses & Trainings</p>
             <hr class="border-black border-1">
@@ -215,9 +238,32 @@
     </div>
 </div>
 
-<audio controls autoplay style="display:none;">
+<audio id="hidden-audio">
   <source src="music/Ost Anne Happy - Michino Timothy Kimino Kimochi.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
+
+<div class="music-control">
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64" id="music-icon">
+    <path d="M45.928,7H18.072C11.957,7,7,11.957,7,18.072v27.856C7,52.043,11.957,57,18.072,57h27.856C52.043,57,57,52.043,57,45.928	V18.072C57,11.957,52.043,7,45.928,7z M37.67,44.644c-1.702,0-4.09-1.045-4.09-3.493c0-2.448,1.522-3.881,3.672-4.299	c0.851-0.165,1.785-0.354,2.603-0.522c0.868-0.178,1.489-0.941,1.489-1.827l0-11.266c0-0.534-0.489-0.934-1.012-0.828l-13.153,2.655	c-0.526,0.106-0.904,0.568-0.904,1.105v16.056c0,2.3-0.347,5.724-5.469,5.724c-1.697,0-4.079-1.042-4.079-3.484	s1.519-3.871,3.662-4.288c0.919-0.179,1.935-0.385,2.797-0.561c0.735-0.151,1.258-0.8,1.253-1.55l-0.134-18.631	c-0.008-1.06,0.738-1.976,1.777-2.184l15.531-3.116c0.795-0.159,1.537,0.444,1.537,1.255c0.001,5.388,0.003,22.895,0.003,23.516	C43.153,41.211,42.805,44.644,37.67,44.644z"></path>
+  </svg>
+</div>
+
+<script>
+$(document).ready(function() {
+  function startAudio() {
+    var audioElement = document.getElementById('hidden-audio');
+    audioElement.play().then(() => {
+    console.log('Audio is playing');
+  }).catch((error) => {
+    console.log('Error playing audio:', error);
+  });
+  }
+
+  $('#music-icon').one('click', function() {
+    startAudio();
+  });
+});
+</script>
 </body>
 </html>
